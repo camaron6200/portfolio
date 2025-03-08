@@ -1,70 +1,74 @@
-# Getting Started with Create React App
+# ようこそ、初めまして
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+私に興味をお持ちの企業様は次のサイトより、私のポートフォリオをご確認ください。\
+確認する → [ポートフォリオ](https://camaron6200.github.io/portfolio/)
 
-## Available Scripts
+## それ以外の方は、こちらを参考に React でポートフォリオを作成してみましょう
 
-In the project directory, you can run:
+はじめに、github でリポジトリを作成しましょう。\
+リポジトリ名は URL の一部になることに注意しましょう。\
+例：https://ユーザー名.github.io/リポジトリ名/
 
-### `npm start`
+### ローカルでプロジェクトを作成しましょう
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`npx create-react-app portfolio`\
+コマンドにてプロジェクトを作成しました。\
+※リポジトリ名と合わせる必要はありませんが、管理のしやすさのために同じにしております。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### package.json を編集しましょう
 
-### `npm test`
+下記のように追記することで、楽にデプロイできます。\
+コマンド覚えたい！という人はこの作業はしなくても OK です。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+{
+    "name": "portfolio",
+    "version": "0.1.0",
+    省略
+    "homepage": "https://ユーザー名.github.io/リポジトリ名/", ← 追記
+    省略
+    "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        省略
+        "rm": "rm -rf docs", ← 追記
+        "mv": "mv build docs", ← 追記
+        "git": "git add . && git commit && git push origin master", ← 追記
+        "deploy": "npm run rm && npm run build && npm run mv && npm run git" ← 追記
+    },
+    省略
+}
+```
 
-### `npm run build`
+### リポジトリの紐付けを行いましょう
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+今のままだと、まだローカルにプロジェクトがただ存在しているだけなので、\
+そのリポジトリを GitHub 上にあるリポジトリと紐付けてあげましょう。\
+`git remote add origin https://github.com/ユーザー名/リポジトリ名.git`
+簡単に言うと、このプロジェクトのコミット先は、この GitHub 上のリポジトリだよと教えてあげます。\
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### デプロイしましょう
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ここまできたらあと少し。\
+プロジェクトのビルドやビルドフォルダの名称変更、コミットやプッシュをしていきます。\
+さてコマンドを打とう、、、ちょっと待った！\
+さっき package.json を編集したから\
+`npm run deploy`\
+だけでいいじゃん！ということでコマンドを実行。\
+しばらく待ってると、Please enter the commit message for ~ というメッセージが出てきます。\
+ようするにコミットメッセージを入力してくださいね〜ということです。\
+vi で編集する時と同様に「i」でインサートモードにしてコミットメッセージを入力してください。\
+メッセージを入力し終えたら「Esc」連打して、「ZZ」で変更を保存して終了してください。
 
-### `npm run eject`
+### 最後にリポジトリの設定を変更しましょう
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+GitHub からリポジトリを開き、設定タブを選択します。\
+次に左側にあるカラムから、Pages を選択します。\
+Build and deployment の Branch 項目を None から master/docs に変更します。\
+ブランチ名やビルドフォルダ名によって変わるので「ブランチ名/ビルドフォルダ名」と言うふうに設定していただければと思います。\
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### おめでとうございます
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+作業はここまでになります。\
+さあ、自分が作ったものが公開されているか確認しにいきましょう。\
+https://ユーザー名.github.io/リポジトリ名/
